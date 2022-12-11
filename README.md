@@ -45,7 +45,7 @@ The rules for scoring representation are as follows:
   "Advantage Player 2" depending on which player has the advantage.
 * If both players have scored less than four points, the score is described as
   "Love", "Fifteen", "Thirty", or "Forty" depending on the number of points
-  scored by each player.# Bootstrap for C++ katas
+  scored by each player.
 
 ## Usage
 
