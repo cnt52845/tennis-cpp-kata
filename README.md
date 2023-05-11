@@ -1,6 +1,7 @@
 # Tennis C++ Kata
 
-[![Run on Replit](https://replit.com/badge/github/Coding-Cuddles/tennis-cpp-kata)](https://replit.com/new/github/Coding-Cuddles/tennis-cpp-kata)
+[![CI](https://github.com/Coding-Cuddles/tennis-cpp-kata/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Cuddles/tennis-cpp-kata/actions/workflows/main.yml)
+[![Replit](https://replit.com/badge?caption=Try%20with%20Replit&variant=small)](https://replit.com/new/github/Coding-Cuddles/tennis-cpp-kata)
 
 ## Overview
 
@@ -49,8 +50,8 @@ The rules for scoring representation are as follows:
 
 ## Usage
 
-You can import this project into [Replit](https://replit.com),
-and it will handle all dependencies automatically.
+You can import this project into [Replit](https://replit.com), and it will
+handle all dependencies automatically.
 
 ### Prerequisites
 
