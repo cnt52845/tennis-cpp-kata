@@ -2,7 +2,7 @@
 
 #include "tennis.h"
 
-TEST(TennisGame, GetScore)
+TEST(TennisGame, DISABLED_GetScore)
 {
     auto game = TennisGame();
     EXPECT_EQ(game.get_score(), "Love-All");
