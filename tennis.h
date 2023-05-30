@@ -20,6 +20,9 @@ public:
 
     std::string get_score() const
     {
+        if (is_player1_scored && is_player2_scored) {
+            return "Fifteen-All";
+        }
         if (is_player1_scored) {
             return "Fifteen-Love";
         }
