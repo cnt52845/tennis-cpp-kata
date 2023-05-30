@@ -14,9 +14,18 @@ public:
             player2_points += 1;
     }
 
-    std::string get_score() const { return "Love-All"; }
+    void score_player2() { is_player2_scored = true; }
+
+    std::string get_score() const
+    {
+        if (is_player2_scored) {
+            return "Love-Fifteen";
+        }
+        return "Love-All";
+    }
 
 private:
-    int player1_points{};
-    int player2_points{};
+    bool is_player2_scored{false};
+    int  player1_points{};
+    int  player2_points{};
 };
