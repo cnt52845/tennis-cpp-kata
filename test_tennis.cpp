@@ -12,6 +12,12 @@ TEST_F(TennisGameTest, ScoreBeforeGameBegin)
     EXPECT_EQ("Love-All", game.get_score());
 }
 
+TEST_F(TennisGameTest, Player1ScoredOnce)
+{
+    game.score_player1();
+    EXPECT_EQ("Fifteen-Love", game.get_score());
+}
+
 TEST_F(TennisGameTest, Player2ScoredOnce)
 {
     game.score_player2();
