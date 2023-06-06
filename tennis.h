@@ -21,7 +21,13 @@ public:
         }
     }
 
-    std::string get_score() const { return "Love-All"; }
+    std::string get_score() const
+    {
+        if (player2_points) {
+            return "Love-Fifteen";
+        }
+        return "Love-All";
+    }
 
 private:
     int player1_points{};
