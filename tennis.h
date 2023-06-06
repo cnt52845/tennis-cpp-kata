@@ -27,7 +27,10 @@ public:
             return points_to_score(player1_points) + "-" + points_to_score(player2_points);
         }
 
-        return points_to_score(player1_points) + "-All";
+        if (player1_points <= 3) {
+            return points_to_score(player1_points) + "-All";
+        }
+        return "Deuce";
     }
 
 private:

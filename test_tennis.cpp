@@ -64,6 +64,13 @@ TEST_F(TennisGameTest, BothPlayersScoredOnce)
     EXPECT_EQ("Fifteen-All", game.get_score());
 }
 
+TEST_F(TennisGameTest, Deuce)
+{
+    score_player1(4);
+    score_player2(4);
+    EXPECT_EQ("Deuce", game.get_score());
+}
+
 TEST(TennisGame, DISABLED_GetScore)
 {
     auto game = TennisGame();
