@@ -2,6 +2,16 @@
 
 #include "tennis.h"
 
+class TennisGameTest : public ::testing::Test {
+protected:
+    TennisGame game;
+};
+
+TEST_F(TennisGameTest, ScoreBeforeGameBegin)
+{
+    EXPECT_EQ("Love-All", game.get_score());
+}
+
 TEST(TennisGame, DISABLED_GetScore)
 {
     auto game = TennisGame();
