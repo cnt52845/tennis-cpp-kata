@@ -23,12 +23,8 @@ public:
 
     std::string get_score() const
     {
-        if (player1_points) {
-            return points_to_score(player1_points) + "-Love";
-        }
-
-        if (player2_points) {
-            return "Love-" + points_to_score(player2_points);
+        if (player1_points != player2_points) {
+            return points_to_score(player1_points) + "-" + points_to_score(player2_points);
         }
 
         return "Love-All";
@@ -37,7 +33,7 @@ public:
 private:
     static const std::string& points_to_score(int points)
     {
-        static const std::array<const std::string, 4> score{"dummy", "Fifteen", "Thirty", "Forty"};
+        static const std::array<const std::string, 4> score{"Love", "Fifteen", "Thirty", "Forty"};
 
         return score.at(points);
     }
