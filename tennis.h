@@ -6,12 +6,19 @@ class TennisGame {
 public:
     TennisGame() = default;
 
-    void score_point(bool is_player1_scored)
+    enum class Player { One, Two };
+
+    void score_point(Player player)
     {
-        if (is_player1_scored)
-            player1_points += 1;
-        else
-            player2_points += 1;
+        switch (player) {
+        case Player::One:
+            player1_points++;
+            break;
+
+        case Player::Two:
+            player2_points++;
+            break;
+        }
     }
 
     std::string get_score() const { return "Love-All"; }
