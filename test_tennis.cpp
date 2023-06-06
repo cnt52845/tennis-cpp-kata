@@ -85,6 +85,13 @@ TEST_F(TennisGameTest, AdvantagePlayer2)
     EXPECT_EQ("Advantage Player 2", game.get_score());
 }
 
+TEST_F(TennisGameTest, Player1Wins)
+{
+    score_player1(4);
+    score_player2(2);
+    EXPECT_EQ("Win for Player 1", game.get_score());
+}
+
 TEST(TennisGame, DISABLED_GetScore)
 {
     auto game = TennisGame();
