@@ -23,21 +23,21 @@ public:
 
     std::string get_score() const
     {
-        switch (player2_points) {
-        case 1:
-            return "Love-Fifteen";
-
-        case 2:
-            return "Love-Thirty";
-
-        case 3:
-            return "Love-Forty";
+        if (player2_points) {
+            return "Love-" + points_to_score(player2_points);
         }
 
         return "Love-All";
     }
 
 private:
+    static const std::string& points_to_score(int points)
+    {
+        static const std::array<const std::string, 4> score{"dummy", "Fifteen", "Thirty", "Forty"};
+
+        return score.at(points);
+    }
+
     int player1_points{};
     int player2_points{};
 };

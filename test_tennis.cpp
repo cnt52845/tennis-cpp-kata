@@ -5,6 +5,13 @@
 class TennisGameTest : public ::testing::Test {
 protected:
     TennisGame game;
+
+    void score_player2(int times = 1)
+    {
+        for (int i = 0; i < times; i++) {
+            game.score_point(TennisGame::Player::Two);
+        }
+    }
 };
 
 TEST_F(TennisGameTest, ScoreBeforeGameBegin)
@@ -14,22 +21,19 @@ TEST_F(TennisGameTest, ScoreBeforeGameBegin)
 
 TEST_F(TennisGameTest, Player2ScoredOnce)
 {
-    game.score_point(TennisGame::Player::Two);
+    score_player2();
     EXPECT_EQ("Love-Fifteen", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredTwice)
 {
-    game.score_point(TennisGame::Player::Two);
-    game.score_point(TennisGame::Player::Two);
+    score_player2(2);
     EXPECT_EQ("Love-Thirty", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredThreeTimes)
 {
-    game.score_point(TennisGame::Player::Two);
-    game.score_point(TennisGame::Player::Two);
-    game.score_point(TennisGame::Player::Two);
+    score_player2(3);
     EXPECT_EQ("Love-Forty", game.get_score());
 }
 
