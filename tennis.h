@@ -23,6 +23,10 @@ public:
 
     std::string get_score() const
     {
+        if (player1_points) {
+            return points_to_score(player1_points) + "-Love";
+        }
+
         if (player2_points) {
             return "Love-" + points_to_score(player2_points);
         }

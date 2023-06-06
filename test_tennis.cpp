@@ -6,6 +6,13 @@ class TennisGameTest : public ::testing::Test {
 protected:
     TennisGame game;
 
+    void score_player1(int times = 1)
+    {
+        for (int i = 0; i < times; i++) {
+            game.score_point(TennisGame::Player::One);
+        }
+    }
+
     void score_player2(int times = 1)
     {
         for (int i = 0; i < times; i++) {
@@ -17,6 +24,12 @@ protected:
 TEST_F(TennisGameTest, ScoreBeforeGameBegin)
 {
     EXPECT_EQ("Love-All", game.get_score());
+}
+
+TEST_F(TennisGameTest, Player1ScoredOnce)
+{
+    score_player1();
+    EXPECT_EQ("Fifteen-Love", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredOnce)
