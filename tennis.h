@@ -27,7 +27,7 @@ public:
             return points_to_score(player1_points) + "-" + points_to_score(player2_points);
         }
 
-        return "Love-All";
+        return points_to_score(player1_points) + "-All";
     }
 
 private:
