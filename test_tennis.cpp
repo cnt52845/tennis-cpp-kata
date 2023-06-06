@@ -18,6 +18,13 @@ TEST_F(TennisGameTest, Player2ScoredOnce)
     EXPECT_EQ("Love-Fifteen", game.get_score());
 }
 
+TEST_F(TennisGameTest, Player2ScoredTwice)
+{
+    game.score_point(TennisGame::Player::Two);
+    game.score_point(TennisGame::Player::Two);
+    EXPECT_EQ("Love-Thirty", game.get_score());
+}
+
 TEST(TennisGame, DISABLED_GetScore)
 {
     auto game = TennisGame();

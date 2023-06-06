@@ -23,9 +23,14 @@ public:
 
     std::string get_score() const
     {
-        if (player2_points) {
+        switch (player2_points) {
+        case 1:
             return "Love-Fifteen";
+
+        case 2:
+            return "Love-Thirty";
         }
+
         return "Love-All";
     }
 
