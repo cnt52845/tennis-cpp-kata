@@ -29,6 +29,9 @@ public:
 
         case 2:
             return "Love-Thirty";
+
+        case 3:
+            return "Love-Forty";
         }
 
         return "Love-All";
