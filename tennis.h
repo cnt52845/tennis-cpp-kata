@@ -30,7 +30,10 @@ public:
             return "Advantage Player 1";
         }
         if (player1_points < player2_points) {
-            return points_to_score(player1_points) + "-" + points_to_score(player2_points);
+            if (player2_points <= 3) {
+                return points_to_score(player1_points) + "-" + points_to_score(player2_points);
+            }
+            return "Advantage Player 2";
         }
 
         if (player1_points <= 3) {
