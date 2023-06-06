@@ -42,7 +42,7 @@ public:
             return "Win for Player 2";
         }
 
-        if (player1_points <= 3) {
+        if (player1_points < 3) {
             return points_to_score(player1_points) + "-All";
         }
         return "Deuce";

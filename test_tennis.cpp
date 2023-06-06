@@ -66,8 +66,8 @@ TEST_F(TennisGameTest, BothPlayersScoredOnce)
 
 TEST_F(TennisGameTest, Deuce)
 {
-    score_player1(4);
-    score_player2(4);
+    score_player1(3);
+    score_player2(3);
     EXPECT_EQ("Deuce", game.get_score());
 }
 
