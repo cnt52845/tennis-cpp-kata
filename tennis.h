@@ -23,61 +23,54 @@ public:
 
     std::string get_score() const
     {
-        if (isPlayer1Leads()) {
-            return score_player1_leads();
+        if (is_score_tied()) {
+            return get_tied_score();
         }
-
-        if (isPlayer2Leads()) {
-            return score_player2_leads();
-        }
-
-        return tied_score();
+        return get_leading_score();
     }
 
 private:
-    bool isPlayer1Leads() const { return player1_points > player2_points; }
+    bool is_score_tied() const { return player1_points == player2_points; }
 
-    bool isPlayer2Leads() const { return player1_points < player2_points; }
-
-    const std::string score_player1_leads() const
+    const std::string get_tied_score() const
     {
-        if (player1_points <= 3) {
-            return score_until_deuce();
-        }
-        if (player1_points - player2_points < 2) {
-            return "Advantage Player 1";
-        }
-        return "Win for Player 1";
+        return (player1_points < 3) ? convert_points_to_score(player1_points) + "-All" : "Deuce";
     }
 
-    const std::string score_player2_leads() const
+    std::string get_leading_score() const
     {
-        if (player2_points <= 3) {
-            return score_until_deuce();
+        if (is_score_under_forty()) {
+            return get_score_under_forty();
         }
-        if (player2_points - player1_points < 2) {
-            return "Advantage Player 2";
-        }
-        return "Win for Player 2";
+        return get_score_above_forty();
     }
 
-    const std::string score_until_deuce() const
+    bool is_score_under_forty() const { return (player1_points <= 3 && player2_points <= 3); }
+
+    const std::string get_score_under_forty() const
     {
-        return points_to_score(player1_points) + "-" + points_to_score(player2_points);
+        return convert_points_to_score(player1_points) + "-" +
+               convert_points_to_score(player2_points);
     }
 
-    const std::string tied_score() const
+    const std::string get_score_above_forty() const
     {
-        if (player1_points < 3) {
-            return points_to_score(player1_points) + "-All";
+        if (is_have_winner()) {
+            return "Win for Player " + get_leading_player();
         }
-        return "Deuce";
+        return "Advantage Player " + get_leading_player();
     }
 
-    static const std::string& points_to_score(int points)
+    bool is_have_winner() const { return std::abs(player1_points - player2_points) >= 2; }
+
+    const std::string get_leading_player() const
+    {
+        return player1_points > player2_points ? "1" : "2";
+    };
+
+    static const std::string& convert_points_to_score(int points)
     {
         static const std::array<const std::string, 4> score{"Love", "Fifteen", "Thirty", "Forty"};
-
         return score.at(points);
     }
 
