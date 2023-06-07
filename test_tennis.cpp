@@ -6,14 +6,14 @@ class TennisGameTest : public ::testing::Test {
 protected:
     TennisGame game;
 
-    void score_player1(int times = 1)
+    void score_points_player1(int times = 1)
     {
         for (int i = 0; i < times; i++) {
             game.score_point(TennisGame::Player::One);
         }
     }
 
-    void score_player2(int times = 1)
+    void score_points_player2(int times = 1)
     {
         for (int i = 0; i < times; i++) {
             game.score_point(TennisGame::Player::Two);
@@ -28,74 +28,74 @@ TEST_F(TennisGameTest, ScoreBeforeGameBegin)
 
 TEST_F(TennisGameTest, Player1ScoredOnce)
 {
-    score_player1();
+    score_points_player1();
     EXPECT_EQ("Fifteen-Love", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredOnce)
 {
-    score_player2();
+    score_points_player2();
     EXPECT_EQ("Love-Fifteen", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredTwice)
 {
-    score_player2(2);
+    score_points_player2(2);
     EXPECT_EQ("Love-Thirty", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2ScoredThreeTimes)
 {
-    score_player2(3);
+    score_points_player2(3);
     EXPECT_EQ("Love-Forty", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player1ScoredOncePlayer2ScoredTwice)
 {
-    score_player1(1);
-    score_player2(2);
+    score_points_player1(1);
+    score_points_player2(2);
     EXPECT_EQ("Fifteen-Thirty", game.get_score());
 }
 
 TEST_F(TennisGameTest, BothPlayersScoredOnce)
 {
-    score_player1();
-    score_player2();
+    score_points_player1();
+    score_points_player2();
     EXPECT_EQ("Fifteen-All", game.get_score());
 }
 
 TEST_F(TennisGameTest, Deuce)
 {
-    score_player1(3);
-    score_player2(3);
+    score_points_player1(3);
+    score_points_player2(3);
     EXPECT_EQ("Deuce", game.get_score());
 }
 
 TEST_F(TennisGameTest, AdvantagePlayer1)
 {
-    score_player1(4);
-    score_player2(3);
+    score_points_player1(4);
+    score_points_player2(3);
     EXPECT_EQ("Advantage Player 1", game.get_score());
 }
 
 TEST_F(TennisGameTest, AdvantagePlayer2)
 {
-    score_player1(3);
-    score_player2(4);
+    score_points_player1(3);
+    score_points_player2(4);
     EXPECT_EQ("Advantage Player 2", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player1Wins)
 {
-    score_player1(4);
-    score_player2(2);
+    score_points_player1(4);
+    score_points_player2(2);
     EXPECT_EQ("Win for Player 1", game.get_score());
 }
 
 TEST_F(TennisGameTest, Player2Wins)
 {
-    score_player1(2);
-    score_player2(4);
+    score_points_player1(2);
+    score_points_player2(4);
     EXPECT_EQ("Win for Player 2", game.get_score());
 }
 

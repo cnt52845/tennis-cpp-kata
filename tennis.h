@@ -26,7 +26,7 @@ public:
         if (is_score_tied()) {
             return get_tied_score();
         }
-        return get_leading_score();
+        return get_non_tied_score();
     }
 
 private:
@@ -37,7 +37,7 @@ private:
         return (player1_points < 3) ? convert_points_to_score(player1_points) + "-All" : "Deuce";
     }
 
-    std::string get_leading_score() const
+    const std::string get_non_tied_score() const
     {
         if (is_score_under_forty()) {
             return get_score_under_forty();
